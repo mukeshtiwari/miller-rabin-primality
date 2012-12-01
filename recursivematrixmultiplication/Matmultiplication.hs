@@ -20,10 +20,10 @@ recurMult n lev xs ys
               ( a , b ) = ( get xs , get ys ) 
               ( a_u , a_l ) = splitAt n' a 
               ( b_u , b_l ) = splitAt n' b 
-              ( a11 , a12 ) = ( Matrix ( map ( fst . splitAt n' ) a_u ) , Matrix ( map ( snd . splitAt n' ) a_u ) )
-              ( a21 , a22 ) = ( Matrix ( map ( fst . splitAt n' ) a_l ) , Matrix ( map ( snd . splitAt n' ) a_l ) ) 
-              ( b11 , b12 ) = ( Matrix ( map ( fst . splitAt n' ) b_u ) , Matrix ( map ( snd . splitAt n' ) b_u ) )
-              ( b21 , b22 ) = ( Matrix ( map ( fst . splitAt n' ) b_l ) , Matrix ( map ( snd . splitAt n' ) b_l ) ) 
+              ( a11 , a12 ) = ( Matrix { get =  map ( fst . splitAt n' ) a_u }  , Matrix { get =  map ( snd . splitAt n' ) a_u } )
+              ( a21 , a22 ) = ( Matrix { get =  map ( fst . splitAt n' ) a_l }  , Matrix { get =  map ( snd . splitAt n' ) a_l } ) 
+              ( b11 , b12 ) = ( Matrix { get =  map ( fst . splitAt n' ) b_u }  , Matrix { get =  map ( snd . splitAt n' ) b_u } )
+              ( b21 , b22 ) = ( Matrix { get =  map ( fst . splitAt n' ) b_l }  , Matrix { get =  map ( snd . splitAt n' ) b_l } ) 
               Matrix c11 = recurMult n' ( lev + 1 ) a11  b11  +  recurMult n' ( lev + 1 ) a12  b21 
               Matrix c12 = recurMult n' ( lev + 1 ) a11  b12  +  recurMult n' ( lev + 1 ) a12  b22
               Matrix c21 = recurMult n' ( lev + 1 ) a21  b11  +  recurMult n' ( lev + 1 ) a22  b21
