@@ -1,0 +1,1 @@
+This is plain simple recursive matrix multiplication using four multiplication ( http://en.wikipedia.org/wiki/Strassen_algorithm ). It's not very efficient but there are lot of chance for improvement and will be working on it. 
