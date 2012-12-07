@@ -1,3 +1,4 @@
+{-#LANGUAGE GADTs, EmptyDataDecls, KindSignatures #-}
 module GData where 
 
 {--
