@@ -9,7 +9,7 @@ int recurse( int h , int a , int cnt , bool flag )
     {
       if ( h <= 0 || a <= 0 ) return cnt ;
       if ( memo[h][a] ) return memo[h][a] ;
-      if ( flag ) memo[h][a] = max ( memo[h][a] , recurse ( h + 3 , a + 2 , cnt + 1 , !flag ) ) ; 
+      if ( flag ) memo[h][a] =  recurse ( h + 3 , a + 2 , cnt + 1 , !flag )  ; 
       else 
          memo[h][a] = max ( memo[h][a] ,  max ( recurse ( h - 5 , a - 10 , cnt + 1 , !flag ) , recurse ( h - 20 , a + 5 , cnt + 1 , !flag ) ) ) ;
       
