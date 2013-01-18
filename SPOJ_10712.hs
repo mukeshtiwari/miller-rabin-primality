@@ -11,7 +11,7 @@ valEQ a b c x = a * x   +  b * sin x - c
 evalFun :: [ Int ]  -> Double
 evalFun [ a' , b' , c' ]  = ret where 
           ( a , b , c  ) = ( fromIntegral a' , fromIntegral b' , fromIntegral c' )
-          ret = fst . until ( \ ( _ , cnt ) -> cnt  >=  100 )  ( \( x , cnt ) -> ( x - (  valEQ a b c x  /  diffEQ a b x ) , succ cnt ) ) $ (  c / a  , 0   ) 
+          ret = fst . until ( \ ( _ , cnt ) -> cnt  >=  500 )  ( \( x , cnt ) -> ( x - (  valEQ a b c x  /  diffEQ a b x ) , succ cnt ) ) $ (  ( c - b ) / a  , 0   ) 
 
 readD :: BS.ByteString -> Int
 readD = fst . fromJust . BS.readInt 
