@@ -21,12 +21,10 @@ calSd n = ( s , d ) where
 rabinMiller::Integer->Integer->Integer->Integer-> Bool
 rabinMiller  n s d a 
    | n == a = True 
-   | otherwise =  case x == 1 of 
-          True -> True 
-          _ ->   any ( == pred n ) . take ( fromIntegral s ) 
-                      . iterate (\e -> mod ( e^2 ) n ) $ x  
-        where 
-              x = powM a d n 
+   | otherwise =  case powM a d n of 
+          1 -> True 
+          x ->   any ( == pred n ) . take ( fromIntegral s ) 
+               . iterate (\e -> mod ( e^2 ) n ) $ x
    
 
 isPrime::Integer-> Bool
